@@ -1,0 +1,3 @@
+[submodule "sample/chrome/content/nestjs"]
+	path = sample/chrome/content/nestjs
+	url = git@github.com:reiddraper/nestjs.git

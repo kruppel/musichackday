@@ -5,7 +5,7 @@ SF Music Hack Day 2011 - May 7-8
   * For the adventurous, download a [nightly](http://developer.songbirdnest.com/builds/trunk/latest).
 2. Install [Developer Tools](http://addons.songbirdnest.com/addons/68).
 3. Go to "Tools" > "Link Extension in Test Mode...". Select the
-   install.rdf in `basic`.
+   `install.rdf` in `basic`.
 
 ### Ship it! ###
 Zip it up and distribute.
