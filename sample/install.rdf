@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+Reference:
+- https://developer.mozilla.org/en/install_manifests
+-->
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+     xmlns:songbird="http://www.songbirdnest.com/2007/addon-metadata-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+
+    <!-- Songbird target application. -->
+    <em:targetApplication>
+      <Description>
+        <em:id>songbird@songbirdnest.com</em:id>
+        <em:minVersion>1.9.3</em:minVersion>
+        <em:maxVersion>1.10.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <em:id>echoic@musichackday.org</em:id>
+    <em:type>2</em:type>
+    <em:version>0.0.1</em:version>
+    <em:name>Echoic</em:name>
+    <em:creator>kurt</em:creator>
+    <em:description>Uses the Echo Nest API to generate a web playlist.</em:description>
+
+    <em:iconURL>chrome://echoic/skin/echonest.png</em:iconURL>
+
+  </Description>
+</RDF>

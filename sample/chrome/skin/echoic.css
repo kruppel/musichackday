@@ -1,0 +1,12 @@
+body {
+  background: rgb(175,175,175);
+}
+
+#container {
+  margin: 0 auto;
+  width: 750px;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}

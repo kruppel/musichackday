@@ -1,0 +1,5 @@
+content basic chrome/content/
+skin basic classic/1.0 chrome/skin/
+locale basic en-US chrome/locale/en-US/
+
+overlay chrome://songbird/content/xul/layoutWithBrowserOverlay.xul chrome://basic/content/browserOverlay.xul
