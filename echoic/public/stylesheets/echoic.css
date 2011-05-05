@@ -1,0 +1,11 @@
+body {
+  background: rgb(175,175,175);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header,
+#container {
+  margin: 0 auto;
+  width: 750px;
+}
+

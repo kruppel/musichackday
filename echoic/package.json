@@ -1,0 +1,14 @@
+{
+  "name": "echoic",
+  "description": "Simple web app for Echoic addon.",
+  "version": "0.0.1",
+  "author": "kurt <kurt@songbirdnest.com>",
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "express": ">=2.1.1",
+    "jade": ">=0.10.1",
+    "less": ">=1.0.41"
+  }
+}
