@@ -46,7 +46,7 @@ var request = function(options, callback) {
   params.api_key = echonest.api_key;
 
   xhr.onreadystatechange = function() {
-    if (this.readyState == 4) {
+    if (this.readyState === 4) {
       callback(xhr.responseText);
     }
   };
@@ -59,7 +59,7 @@ var request = function(options, callback) {
   }
 
   xhr.send(params);
-}
+};
 
 var echonest = (function() {
   var base_url = 'http://developer.echonest.com/api/v4/',
