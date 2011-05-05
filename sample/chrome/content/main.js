@@ -12,12 +12,6 @@ var Cc = Cc || Components.classes,
 var DATA_NS = DATA_NS || 'http://songbirdnest.com/data/1.0#',
     SP_NS = SP_NS || 'http://songbirdnest.com/rdf/servicepane#';
 
-/*
- * Imports for JS code modules
- * doc: https://developer.mozilla.org/en/JavaScript_code_modules/Using
- */
-Cu.import('resource://echoic/RequestUtils.jsm');
-
 // Setup Echo Nest API wrapper
 echonest.api_key = 'FQVXQRSHUQNJQILM3';
 

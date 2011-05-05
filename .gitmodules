@@ -1,0 +1,6 @@
+[submodule "echoic/public/scripts/echonestjs"]
+	path = echoic/public/scripts/echonestjs
+	url = git@github.com:kruppel/echonestjs.git
+[submodule "sample/chrome/content/echonestjs"]
+	path = sample/chrome/content/echonestjs
+	url = git@github.com:kruppel/echonestjs.git
