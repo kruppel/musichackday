@@ -2,4 +2,5 @@
 <?xml-stylesheet href="chrome://echoic/skin/main.css" type="text/css"?>
 <overlay id="echoic-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="main.js"/>
+  <script src="nestjs/src/nest.js"/>
 </overlay>

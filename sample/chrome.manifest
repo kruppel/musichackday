@@ -1,5 +1,5 @@
 content echoic chrome/content/
 skin echoic classic/1.0 chrome/skin/
 locale echoic en-US chrome/locale/en-US/
-
+resource echoic jsmodules/
 overlay chrome://songbird/content/xul/layoutWithBrowserOverlay.xul chrome://echoic/content/browserOverlay.xul

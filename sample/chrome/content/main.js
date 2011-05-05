@@ -1,3 +1,9 @@
+/*
+ * \file main.js
+ *
+ * \author kurt <kurt@songbirdnest.com>
+ */
+
 var Cc = Cc || Components.classes,
     Ci = Ci || Components.interfaces,
     Cu = Cu || Components.utils;
@@ -6,10 +12,32 @@ var Cc = Cc || Components.classes,
 var SB_NS = 'http://songbirdnest.com/data/1.0#',
     SP_NS = 'http://songbirdnest.com/rdf/servicepane#';
 
-// Create an Echoic namespace
-var Echoic = Echoic || {};
+/*
+ * Imports for JS code modules
+ * doc: https://developer.mozilla.org/en/JavaScript_code_modules/Using
+ */
+Cu.import('resource://echoic/RequestUtils.jsm');
 
-Echoic.onLoad = function(event) {
+// Setup Echo Nest API wrapper
+var nest = nest.nest('FQVXQRSHUQNJQILM3');
+
+// Create an sbEchoic namespace
+var sbEchoic = sbEchoic || {};
+
+sbEchoic.onLoad = function(event) {
+  // XXX - create the catalog
+  this.createCatalog();
+  this.createSPSNodes();
+};
+
+sbEchoic.createCatalog = function() {
+
+};
+
+/*
+ * \brief Sets up the Echoic service pane node.
+ */
+sbEchoic.createSPSNodes = function() {
   var echoicId = 'SB:Echoic',
       servicesId = 'SB:Services',
       sps = Cc['@songbirdnest.com/servicepane/service;1']
@@ -31,13 +59,13 @@ Echoic.onLoad = function(event) {
   }
 
   echoicNode = sps.createNode();
-  echoicNode.url = 'chrome://echoic/content/echoic.html';
+  echoicNode.url = 'http://localhost:3000/';
   echoicNode.id = echoicId;
   echoicNode.name = 'Echoic';
   echoicNode.image = 'chrome://echoic/skin/echonest.png';
   echoicNode.editable = false;
   echoicNode.hidden = false;
   servicesNode.appendChild(echoicNode);
-}
+};
 
-window.addEventListener('load', Echoic.onLoad, false);
+window.addEventListener('load', sbEchoic.onLoad, false);
