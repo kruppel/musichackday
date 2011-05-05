@@ -9,8 +9,8 @@ var Cc = Cc || Components.classes,
     Cu = Cu || Components.utils;
 
 // Songbird namespaces
-var SB_NS = 'http://songbirdnest.com/data/1.0#',
-    SP_NS = 'http://songbirdnest.com/rdf/servicepane#';
+var DATA_NS = DATA_NS || 'http://songbirdnest.com/data/1.0#',
+    SP_NS = SP_NS || 'http://songbirdnest.com/rdf/servicepane#';
 
 /*
  * Imports for JS code modules
@@ -19,19 +19,25 @@ var SB_NS = 'http://songbirdnest.com/data/1.0#',
 Cu.import('resource://echoic/RequestUtils.jsm');
 
 // Setup Echo Nest API wrapper
-var nest = nest.nest('FQVXQRSHUQNJQILM3');
+echonest.api_key = 'FQVXQRSHUQNJQILM3';
 
 // Create an sbEchoic namespace
 var sbEchoic = sbEchoic || {};
 
 sbEchoic.onLoad = function(event) {
-  // XXX - create the catalog
-  this.createCatalog();
-  this.createSPSNodes();
+  // Create the catalog
+  sbEchoic.createCatalog();
+  sbEchoic.createSPSNodes();
 };
 
 sbEchoic.createCatalog = function() {
-
+  echonest.apiCall('catalog',
+                   'create',
+                   { name: 'Songbird Echoic Catalog',
+                     type: 'song' },
+                   function(response) {
+                     Cu.reportError(response);
+                   });
 };
 
 /*
@@ -53,7 +59,7 @@ sbEchoic.createSPSNodes = function() {
     servicesNode.className = 'folder services';
     servicesNode.name = SBString('servicesource.services');
     servicesNode.editable = false;
-    servicesNode.setAttributeNS(SB_NS, 'servicesFolder', 1);
+    servicesNode.setAttributeNS(DATA_NS, 'servicesFolder', 1);
     servicesNode.setAttributeNS(SP_NS, 'Weight', 1);
     sps.root.appendChild(servicesNode);
   }
