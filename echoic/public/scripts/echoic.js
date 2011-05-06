@@ -29,7 +29,7 @@ var Echoic = (function() {
       }
     },
     echoes: function($, id) {
-      var url = '/feed/' + id + '/0';
+      var url = '/feed/' + id;
 
       $.getJSON(url, {}, function(res) {
         var r = res.response,

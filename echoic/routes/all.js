@@ -9,7 +9,7 @@ module.exports = function(app, echonest) {
     }
   });
 
-  app.get('/feed/:id/:page', function(req, res) {
+  app.get('/feed/:id', function(req, res) {
     echonest.apiCall('catalog',
                      'feed',
                      { id: req.params.id,
