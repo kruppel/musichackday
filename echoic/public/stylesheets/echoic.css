@@ -5,13 +5,11 @@ body {
 }
 
 #container {
-  margin: 0 auto;
-  width: 750px;
 }
 
 #header {
   background-color: rgb(25,24,24);
-  border-bottom: solid rgb(75,74,74) 1px;
+  border-bottom: solid rgb(75,74,74) 2px;
   color: rgb(255,255,255);
   height: 80px;
   margin: 0;
@@ -19,8 +17,16 @@ body {
   padding: 10px 75px;
 }
 
-#title {
+a#title {
+  background: url('/images/banner.png');
   float: left;
+  height: 50px;
+  width: 160px;
+  margin-top: 15px;
+}
+
+a#title:hover {
+  opacity: 0.8;
 }
 
 a#poweredby {
@@ -29,4 +35,64 @@ a#poweredby {
   height: 30px;
   width: 200px;
   margin-top: 20px;
+}
+
+#content {
+}
+
+#notice {
+  font-size: 75px;
+  margin: 0 auto;
+  padding-top: 125px;
+  text-align: center;
+  width: 800px;
+}
+
+#nowplaying {
+  background-color: rgb(45,44,44);
+  border-right: solid rgb(75,74,74) 2px;
+  color: rgb(207,207,235);
+  float: left;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 100%;
+  padding-left: 50px;
+  padding-right: 10px;
+  width: 200px;
+}
+
+span.metadata {
+  padding-left: 5px;
+}
+
+#artistname,
+#trackname {
+  font-size: 14px;
+  padding: 2px;
+}
+
+#info {
+  margin-left: 300px;
+  min-height: 200px;
+  width: 200px;
+}
+
+a#gtfo,
+a#promo {
+  color: rgb(100,100,100);
+  text-decoration: none;
+  text-shadow: rgb(200,200,200) 0 1px;
+}
+
+a#gtfo:hover,
+a#promo:hover {
+  color: rgb(220,0,220);
+}
+
+.harsh {
+  padding: 10px 0;
+}
+
+.condy {
+  color: rgb(50,50,50);
 }

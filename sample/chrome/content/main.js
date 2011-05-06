@@ -54,13 +54,16 @@ sbEchoic.onLoad = function(event) {
     },
     onItemUpdated: function(list, item, properties) {
       var index = 0,
-          length = properties.length;
+          length = properties.length,
+          pstring = properties.toString().toLowerCase();
 
-      // Goes over limit for download property updates.
-      if (properties.toString().indexOf('download') !== -1) {
+      // [hack] Exclude certain property updates.
+      if (pstring.indexOf('download') !== -1 ||
+          pstring.indexOf('duration') !== -1 ||
+          pstring.indexOf('play') !== -1) {
         return;
       }
-
+      Cu.reportError(properties.toString());
       self.updateItem(item);
     },
     onItemMoved: function(list, fromIndex, toIndex) {},
@@ -75,9 +78,13 @@ sbEchoic.onLoad = function(event) {
   this.mmListener = {
     onMediacoreEvent: function(event) {
       switch(event.type) {
-        case Ci.sbIMediacoreEvent.BEFORE_TRACK_CHANGE:
+        case Ci.sbIMediacoreEvent.EXPLICIT_TRACK_CHANGE:
+          var item = gMM.sequencer.currentItem;
+          self.updateItem(item, 'skip');
           break;
         case Ci.sbIMediacoreEvent.TRACK_CHANGE:
+          var item = gMM.sequencer.currentItem;
+          self.updateItem(item, 'play');
           break;
         default:
       }
@@ -177,8 +184,6 @@ sbEchoic.updateAllCatalogItems = function() {
                      Cu.reportError(self.ticket);
                    });
 };
-
-// XXX - TODO - delete - update - play - skip
 
 /**
  * \brief Update an Echo Nest catalog entry given a Songbird media item.

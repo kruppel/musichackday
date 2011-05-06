@@ -9,11 +9,30 @@ module.exports = function(app, echonest) {
     }
   });
 
+  app.get('/artist/:name', function(req, res) {
+    echonest.apiCall('artist',
+                     'profile',
+                     { name: req.params.name,
+                       buckets: [ 'audio',
+                                  'biographies',
+                                  'blogs',
+                                  'hotttnesss',
+                                  'images',
+                                  'news',
+                                  'reviews',
+                                  'urls' ]
+                     },
+                     function(error, response, body) {
+                       res.send(body);
+                     });
+
+  });
+
   app.get('/feed/:id', function(req, res) {
     echonest.apiCall('catalog',
                      'feed',
                      { id: req.params.id,
-                       results: 100,
+                       results: 30,
                        bucket: 'audio'
                      },
                      function(error, response, body) {
