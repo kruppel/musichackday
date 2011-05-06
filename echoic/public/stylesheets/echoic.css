@@ -1,11 +1,32 @@
 body {
   background: rgb(175,175,175);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-#header,
 #container {
   margin: 0 auto;
   width: 750px;
 }
 
+#header {
+  background-color: rgb(25,24,24);
+  border-bottom: solid rgb(75,74,74) 1px;
+  color: rgb(255,255,255);
+  height: 80px;
+  margin: 0;
+  min-width: 500px;
+  padding: 10px 75px;
+}
+
+#title {
+  float: left;
+}
+
+a#poweredby {
+  background: url('/images/poweredby.gif');
+  float: right;
+  height: 30px;
+  width: 200px;
+  margin-top: 20px;
+}

@@ -3,10 +3,12 @@ html
   head
     title Echoic
     link(rel='stylesheet', href='/stylesheets/echoic.css')
-    script(src='/scripts/nestjs/src/nest.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js')
     script(src='/scripts/echoic.js')
   body
     #header
       h1#title Echoic
+      a#poweredby(href='http://echonest.com', target='_blank')
     #container
       !=body
+
