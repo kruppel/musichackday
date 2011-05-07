@@ -1,12 +1,14 @@
 #content
-  #nowplaying
-    #artistname Artist:
-      span.metadata
-    #trackname Title:
-      span.metadata
-    #hotttnesss
-  #info
+  #sidebar
     #images
-    #similar
+  #info
+    #topbar
+      #artistname
+      #hotttnesss
+    #infobody
+      #news
+      #similar
+#locker(hidden=true)
+#rocker(hidden=true)
 script
   Echoic.echoes($, '#{id}');

@@ -4,6 +4,25 @@
  * - http://src.songbirdnest.com/xref/trunk/components/remoteapi/public/sbIRemotePlayer.idl
  */
 
+var session = {
+  artists: [],
+  getLinks: function(name) {
+    var links = this.artists[name],
+        href;
+
+    if (!links) { return; }
+
+    $('div#locker').children().remove();
+    $('div#rocker').children().remove();
+
+    links.forEach(function(link) {
+      var href = link['url'];
+
+      $('div#rocker').append('<a href="' + href + ' />');
+    });
+  }
+};
+
 var Echoic = (function() {
   var birdable = false,
       observer = {
@@ -11,19 +30,75 @@ var Echoic = (function() {
           switch(subject) {
             case 'metadata.artist':
               var url = '/artist/' + encodeURIComponent(topic);
-
-              $('div#artistname span').text(topic);
+              $('div#artistname').text(topic);
 
               $.getJSON(url, {}, function(res) {
                 var r = res.response,
-                    artist = (r) ? r.artist : null;
+                    artist = (r) ? r.artist : null,
+                    news = artist.news,
+                    articleno = 1,
+                    images = (artist) ? artist.images : null,
+                    ilength = (images) ? images.length : null,
+                    icount = 0,
+                    hotttnesss,
+                    red, green, blue, rgb;
 
                 if (!artist) { return; }
 
+                $('div#news').children().remove();
+                news.forEach(function(story) {
+                  $('div#news').append('<div class="story">' + articleno++ +
+                                       '. <a href="' + story.url +
+                                       '" class="headline" target="_blank">' +
+                                         story.name + '</a></div>');
+                });
+
+                $('div#similar').children().remove();
+                $.getJSON('/similar/' + artist.id, {}, function(res) {
+                  var r = res.response,
+                      artists = r.artists;
+
+                  if (!artists) { return; }
+
+                  session.artists = artists;
+
+                  artists.forEach(function(artist) {
+                    var name = artist.name,
+                        link = '<div class="rec" onclick="session.getLinks' + "('" +
+                                name + "')" + '">' + name + '</div>';
+
+                    session.artists[name] = artist.audio;
+                    $('div#similar').append(link);
+                  });
+                });
+
+                // Hot or not!
+                ilength = Math.min(ilength, 5);
+                $('div#images').children().remove();
+                while (icount < ilength) {
+                  var src = images[icount++].url;
+                  $('div#images').append('<img src="' + src + '" width="200" />');
+                }
+
+                hotttnesss = Math.floor(artist.hotttnesss * 100);
+
+                if (typeof(hotttnesss) === 'number') {
+                  if (hotttnesss >= 50) {
+                    red = 255;
+                    green = blue = Math.floor(255 * (1 - artist.hotttnesss) * 2 - 10);
+                  } else {
+                    red = green = Math.floor(255 * artist.hotttnesss * 2 - 10);
+                    blue = 255;
+                  }
+
+                  rgb = 'rgb(' + red + ',' + green + ',' + blue + ')';
+                  $('div#hotttnesss').css('color', rgb);
+                  $('div#hotttnesss').text(hotttnesss);
+                }
               });
               break;
             case 'metadata.title':
-              $('div#trackname > span').text(topic);
+              $('div#trackname').text(topic);
               break;
             default:
               break;
@@ -57,7 +132,7 @@ var Echoic = (function() {
 
         feed.forEach(function(entry) {
           var href = entry.url;
-          $('div#content').append('<a href="' + href + ' />');
+          $('div#locker').append('<a href="' + href + ' />');
         });
       });
     },

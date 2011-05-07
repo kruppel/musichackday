@@ -1,5 +1,5 @@
 body {
-  background: rgb(175,175,175);
+  background: rgb(150,150,150);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
@@ -14,7 +14,7 @@ body {
   height: 80px;
   margin: 0;
   min-width: 500px;
-  padding: 10px 75px;
+  padding: 10px 50px;
 }
 
 a#title {
@@ -48,33 +48,105 @@ a#poweredby {
   width: 800px;
 }
 
-#nowplaying {
+#sidebar {
   background-color: rgb(45,44,44);
   border-right: solid rgb(75,74,74) 2px;
   color: rgb(207,207,235);
   float: left;
   margin: 0;
-  padding-top: 20px;
-  padding-bottom: 100%;
-  padding-left: 50px;
-  padding-right: 10px;
   width: 200px;
 }
 
-span.metadata {
-  padding-left: 5px;
+#topbar {
+  height: 75px;
+  margin: 0;
+  width: 100%;
 }
 
-#artistname,
-#trackname {
-  font-size: 14px;
-  padding: 2px;
+#topbar > #artistname {
+  color: rgb(20,20,20);
+  float: left;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 50px;
+  text-decoration: none;
+  text-shadow: rgb(200,200,200) 0 1px;
+}
+
+#hotttnesss {
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 50px;
+  text-decoration: none;
+  text-shadow: rgb(200,200,200) 0 1px;
 }
 
 #info {
-  margin-left: 300px;
   min-height: 200px;
+  min-width: 800px;
+}
+
+#infobody {
+  border-top: 2px solid rgb(75,74,74);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#images {
   width: 200px;
+  margin: 0;
+}
+
+#news {
+  float: left;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  max-width: 300px;
+}
+
+.story {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.headline {
+  color: rgb(20,20,20);
+  text-decoration: none;
+}
+
+.headline:hover {
+  color: rgb(0,100,255);
+}
+
+#similar {
+  background: rgb(25,24,24);
+  border-left: 2px solid rgb(75,74,74);
+  border-bottom: 2px solid rgb(75,74,74);
+  float: right;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 40px;
+  width: 25%;
+  -moz-border-radius-bottomleft: 4px;
+}
+
+.rec {
+  color: rgb(200,200,200);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: right;
+  text-shadow: rgb(0,0,0) 0 1px;
+}
+
+.rec:hover {
+  color: rgb(0,167,225);
 }
 
 a#gtfo,

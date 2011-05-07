@@ -28,11 +28,22 @@ module.exports = function(app, echonest) {
 
   });
 
+  app.get('/similar/:id', function(req, res) {
+    echonest.apiCall('artist',
+                     'similar',
+                     { id: req.params.id,
+                       buckets: [ 'audio' ]
+                     },
+                     function(error, response, body) {
+                       res.send(body);
+                     });
+  });
+
   app.get('/feed/:id', function(req, res) {
     echonest.apiCall('catalog',
                      'feed',
                      { id: req.params.id,
-                       results: 30,
+                       results: 50,
                        bucket: 'audio'
                      },
                      function(error, response, body) {
