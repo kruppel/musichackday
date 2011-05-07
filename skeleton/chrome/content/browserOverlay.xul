@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+<!-- Overlays layoutWithBrowserOverlay.xul. See the chrome.manifest to review how this page is -->
+<!-- registered. Also, check the source for the original document,                             -->
+<!-- http://src.songbirdnest.com/xref/trunk/app/content/xul/layoutWithBrowserOverlay.xul.      -->
 <?xml-stylesheet href="chrome://basic/skin/basic.css" type="text/css"?>
 <overlay id="basic-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="basic.js"/>

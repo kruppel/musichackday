@@ -7,9 +7,6 @@ SF Music Hack Day 2011 - May 7-8
 3. Go to "Tools" > "Link Extension in Test Mode...". Select the
    `install.rdf` in `skeleton`.
 
-### Ship it! ###
-Zip it up and distribute.
-
 ### Documentation ###
 * [Songbird Wiki](http://wiki.songbirdnest.com/ "Songbird Wiki")
 * [Mozilla Developer Network (MDN)](http://developer.mozilla.org/
@@ -26,4 +23,7 @@ built on the Mozilla framework.
   * The best way to view code examples.
 * [DOM Inspector](https://addons.mozilla.org/en-US/firefox/addon/dom-inspector-6622/)
   * Inspect, browse, and edit the DOM of documents
-  * [MDN Documentation](https://developer.mozilla.org/En/DOM_Inspector)
+  * [MDN article](https://developer.mozilla.org/En/DOM_Inspector)
+
+### Have questions? ###
+* IRC: [#songbird](irc://irc.mozilla.org/songbird)

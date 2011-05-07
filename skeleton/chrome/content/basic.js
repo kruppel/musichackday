@@ -1,3 +1,4 @@
+/* Script embedded in browserOverlay.xul */
 var trivialert = function(e) {
   var self = this;
   window.setTimeout(function() {
